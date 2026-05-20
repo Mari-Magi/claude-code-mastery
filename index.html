@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="ko" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developer · Web, Full Stack</title>
+    <meta name="description" content="풀스택 개발자의 현대적 포트폴리오. JavaScript, React, Node.js 전문가.">
+    <meta property="og:title" content="Developer · Web, Full Stack">
+    <meta property="og:description" content="웹 애플리케이션을 개발합니다. 빠르고, 현대적이고, 확장 가능한 솔루션.">
+    <meta property="og:image" content="/assets/images/profile.jpg">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwindcss.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'dark-bg': '#080c14',
+                        'dark-surface': '#0d1428',
+                        'accent-blue': '#4a9eff',
+                        'accent-purple': '#7c5cff',
+                        'accent-cyan': '#00d4ff',
+                        'text-muted': '#8892a4'
+                    },
+                    backdropFilter: {
+                        'blur-md': 'blur(10px)',
+                        'blur-lg': 'blur(20px)',
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <link rel="stylesheet" href="css/custom.css">
+</head>
+<body class="bg-dark-bg text-gray-100 transition-colors duration-300">
+    <!-- 스크롤 진행 바 -->
+    <div id="scrollProgress" class="fixed top-0 left-0 h-1 bg-gradient-to-r from-accent-blue to-accent-purple z-50" style="width: 0%"></div>
+
+    <!-- 네비게이션 -->
+    <nav class="sticky top-0 z-40 bg-dark-bg/80 backdrop-blur-md border-b border-white/5 transition-colors duration-300">
+        <div class="max-w-6xl mx-auto px-6 py-5 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <div class="text-accent-blue font-bold text-xl">
+                    <i class="fas fa-code"></i>
+                </div>
+                <div>
+                    <div class="text-sm font-bold text-gray-100">Developer</div>
+                    <div class="text-xs text-text-muted">Web, Full Stack</div>
+                </div>
+            </div>
+
+            <!-- 데스크톱 메뉴 -->
+            <div class="hidden md:flex gap-8 items-center">
+                <a href="#about" class="nav-link text-sm text-text-muted hover:text-accent-blue transition">소개</a>
+                <a href="#experience" class="nav-link text-sm text-text-muted hover:text-accent-blue transition">경력</a>
+                <a href="#skills" class="nav-link text-sm text-text-muted hover:text-accent-blue transition">기술</a>
+                <a href="#projects" class="nav-link text-sm text-text-muted hover:text-accent-blue transition">프로젝트</a>
+                <a href="#contact" class="nav-link text-sm text-text-muted hover:text-accent-blue transition">연락처</a>
+                <button id="darkModeToggle" class="p-2 rounded-lg bg-dark-surface border border-white/10 hover:border-accent-blue transition">
+                    <i class="fas fa-moon text-accent-blue text-sm"></i>
+                </button>
+            </div>
+
+            <!-- 모바일 메뉴 버튼 -->
+            <div class="md:hidden flex gap-4 items-center">
+                <button id="darkModeToggleMobile" class="p-2 rounded-lg bg-dark-surface border border-white/10 hover:border-accent-blue transition">
+                    <i class="fas fa-moon text-accent-blue text-sm"></i>
+                </button>
+                <button id="menuToggle" class="p-2 rounded-lg bg-dark-surface border border-white/10">
+                    <i class="fas fa-bars text-gray-100 text-lg"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- 모바일 메뉴 -->
+        <div id="mobileMenu" class="hidden md:hidden bg-dark-surface/50 backdrop-blur-md border-t border-white/5">
+            <div class="max-w-4xl mx-auto px-6 py-4 flex flex-col gap-3">
+                <a href="#about" class="nav-link text-sm text-text-muted hover:text-accent-blue transition py-2">소개</a>
+                <a href="#experience" class="nav-link text-sm text-text-muted hover:text-accent-blue transition py-2">경력</a>
+                <a href="#skills" class="nav-link text-sm text-text-muted hover:text-accent-blue transition py-2">기술</a>
+                <a href="#projects" class="nav-link text-sm text-text-muted hover:text-accent-blue transition py-2">프로젝트</a>
+                <a href="#contact" class="nav-link text-sm text-text-muted hover:text-accent-blue transition py-2">연락처</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 메인 콘텐츠 -->
+    <main class="max-w-7xl mx-auto px-6">
+        <!-- 히어로 섹션 -->
+        <section id="about" class="min-h-screen flex items-center py-20 animate-fade-in-up relative overflow-hidden">
+            <!-- 배경 dot grid -->
+            <div class="absolute inset-0 opacity-30 pointer-events-none" style="background-image: radial-gradient(circle, rgba(74, 158, 255, 0.1) 1px, transparent 1px); background-size: 50px 50px; background-position: 0 0;"></div>
+
+            <div class="relative z-10 grid md:grid-cols-2 gap-12 items-center w-full">
+                <!-- 좌측 텍스트 -->
+                <div class="space-y-8">
+                    <div>
+                        <h1 class="text-6xl md:text-7xl font-bold leading-tight mb-4">
+                            웹<br>애플리케이션을<br>개발합니다
+                        </h1>
+                        <p class="text-xl text-text-muted leading-relaxed max-w-lg">
+                            빠르고 현대적이며 확장 가능한 솔루션을 만듭니다.<br>
+                            React, Node.js, 그리고 최신 웹 기술을 활용합니다.
+                        </p>
+                    </div>
+
+                    <div class="flex gap-4 flex-wrap">
+                        <a href="mailto:bernadine_lee3@hotmail.com" class="px-8 py-3 rounded-lg font-semibold bg-gradient-to-r from-accent-blue to-accent-purple text-white hover:shadow-lg hover:shadow-accent-blue/50 transition duration-300">
+                            <i class="fas fa-envelope mr-2"></i>이메일 보내기
+                        </a>
+                        <a href="#projects" class="px-8 py-3 rounded-lg font-semibold border-2 border-accent-blue text-accent-blue hover:bg-accent-blue/10 transition duration-300">
+                            프로젝트 보기
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 우측 이미지 -->
+                <div class="flex justify-center md:justify-end">
+                    <div class="relative w-80 h-80 neon-border-glow">
+                        <div class="absolute -inset-1 bg-gradient-to-br from-accent-blue via-accent-purple to-accent-cyan rounded-2xl opacity-20 blur"></div>
+                        <div class="relative w-full h-full bg-dark-surface rounded-2xl overflow-hidden border border-accent-blue/30">
+                            <img src="https://picsum.photos/seed/developer/320/320" alt="프로필" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 스킬 섹션 (원형 프로그레스) -->
+        <section id="skills" class="py-20 animate-fade-in-up" style="animation-delay: 0.1s">
+            <div class="mb-12">
+                <div class="flex items-center gap-4 mb-2">
+                    <div class="w-1 h-8 bg-gradient-to-b from-accent-blue to-accent-purple"></div>
+                    <h2 class="text-4xl font-bold">기술 스택</h2>
+                </div>
+                <p class="text-text-muted ml-6">8년의 경험으로 다양한 기술을 마스터했습니다</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- React -->
+                <div class="glass-card p-6 rounded-xl flex flex-col items-center justify-center space-y-4">
+                    <svg viewBox="0 0 100 100" class="w-32 h-32">
+                        <circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2" class="circle-track"/>
+                        <circle cx="50" cy="50" r="40" fill="none" stroke="url(#grad1)" stroke-width="3" stroke-linecap="round"
+                            class="circle-bar" style="stroke-dasharray: 251.2; stroke-dashoffset: 251.2; transform: rotate(-90deg); transform-origin: 50px 50px;"
+                            data-percentage="90"/>
+                        <text x="50" y="50" text-anchor="middle" dy="0.3em" class="text-2xl font-bold fill-white">90%</text>
+                        <defs>
+                            <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#4a9eff;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#7c5cff;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <div class="text-center">
+                        <h3 class="font-bold text-lg">React</h3>
+                        <p class="text-sm text-text-muted">프론트엔드</p>
+                    </div>
+                </div>
+
+                <!-- JavaScript -->
+                <div class="glass-card p-6 rounded-xl flex flex-col items-center justify-center space-y-4">
+                    <svg viewBox="0 0 100 100" class="w-32 h-32">
+                        <circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2" class="circle-track"/>
+                        <circle cx="50" cy="50" r="40" fill="none" stroke="url(#grad2)" stroke-width="3" stroke-linecap="round"
+                            class="circle-bar" style="stroke-dasharray: 251.2; stroke-dashoffset: 25.12;" data-percentage="85"
+                            style="stroke-dasharray: 251.2; stroke-dashoffset: 37.68; transform: rotate(-90deg); transform-origin: 50px 50px;"/>
+                        <text x="50" y="50" text-anchor="middle" dy="0.3em" class="text-2xl font-bold fill-white">85%</text>
+                        <defs>
+                            <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#4a9eff;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#00d4ff;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <div class="text-center">
+                        <h3 class="font-bold text-lg">JavaScript</h3>
+                        <p class="text-sm text-text-muted">언어</p>
+                    </div>
+                </div>
+
+                <!-- TypeScript -->
+                <div class="glass-card p-6 rounded-xl flex flex-col items-center justify-center space-y-4">
+                    <svg viewBox="0 0 100 100" class="w-32 h-32">
+                        <circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2" class="circle-track"/>
+                        <circle cx="50" cy="50" r="40" fill="none" stroke="url(#grad3)" stroke-width="3" stroke-linecap="round"
+                            class="circle-bar" style="stroke-dasharray: 251.2; stroke-dashoffset: 50.24; transform: rotate(-90deg); transform-origin: 50px 50px;" data-percentage="80"/>
+                        <text x="50" y="50" text-anchor="middle" dy="0.3em" class="text-2xl font-bold fill-white">80%</text>
+                        <defs>
+                            <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#7c5cff;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#4a9eff;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <div class="text-center">
+                        <h3 class="font-bold text-lg">TypeScript</h3>
+                        <p class="text-sm text-text-muted">언어</p>
+                    </div>
+                </div>
+
+                <!-- Node.js -->
+                <div class="glass-card p-6 rounded-xl flex flex-col items-center justify-center space-y-4">
+                    <svg viewBox="0 0 100 100" class="w-32 h-32">
+                        <circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2" class="circle-track"/>
+                        <circle cx="50" cy="50" r="40" fill="none" stroke="url(#grad4)" stroke-width="3" stroke-linecap="round"
+                            class="circle-bar" style="stroke-dasharray: 251.2; stroke-dashoffset: 37.68; transform: rotate(-90deg); transform-origin: 50px 50px;" data-percentage="85"/>
+                        <text x="50" y="50" text-anchor="middle" dy="0.3em" class="text-2xl font-bold fill-white">85%</text>
+                        <defs>
+                            <linearGradient id="grad4" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#7c5cff;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <div class="text-center">
+                        <h3 class="font-bold text-lg">Node.js</h3>
+                        <p class="text-sm text-text-muted">백엔드</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 경력 섹션 -->
+        <section id="experience" class="py-20 animate-fade-in-up" style="animation-delay: 0.2s">
+            <div class="mb-12">
+                <div class="flex items-center gap-4 mb-2">
+                    <div class="w-1 h-8 bg-gradient-to-b from-accent-blue to-accent-purple"></div>
+                    <h2 class="text-4xl font-bold">경력</h2>
+                </div>
+                <p class="text-text-muted ml-6">3년 이상의 전문 개발 경험</p>
+            </div>
+
+            <div class="space-y-8">
+                <!-- 경력 1 -->
+                <div class="glass-card p-6 rounded-xl border-l-4 border-accent-blue">
+                    <h3 class="text-2xl font-bold mb-2">테크스타트업</h3>
+                    <p class="text-accent-blue font-semibold mb-1">풀스택 엔지니어</p>
+                    <p class="text-text-muted text-sm mb-4">2021년 3월 - 현재</p>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><i class="fas fa-check text-accent-cyan mr-2"></i>React 기반 프론트엔드 개발 및 최적화</li>
+                        <li><i class="fas fa-check text-accent-cyan mr-2"></i>Node.js/Express로 RESTful API 구축</li>
+                        <li><i class="fas fa-check text-accent-cyan mr-2"></i>MongoDB 데이터베이스 설계 및 관리</li>
+                        <li><i class="fas fa-check text-accent-cyan mr-2"></i>팀 협업 및 코드 리뷰</li>
+                    </ul>
+                </div>
+
+                <!-- 경력 2 -->
+                <div class="glass-card p-6 rounded-xl border-l-4 border-accent-purple">
+                    <h3 class="text-2xl font-bold mb-2">디지털 에이전시</h3>
+                    <p class="text-accent-purple font-semibold mb-1">주니어 개발자</p>
+                    <p class="text-text-muted text-sm mb-4">2018년 7월 - 2021년 2월</p>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><i class="fas fa-check text-accent-cyan mr-2"></i>클라이언트 웹사이트 개발 및 유지보수</li>
+                        <li><i class="fas fa-check text-accent-cyan mr-2"></i>HTML/CSS/JavaScript 반응형 디자인</li>
+                        <li><i class="fas fa-check text-accent-cyan mr-2"></i>jQuery를 활용한 동적 기능 개발</li>
+                        <li><i class="fas fa-check text-accent-cyan mr-2"></i>30개 이상 프로젝트 완성</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 프로젝트 섹션 -->
+        <section id="projects" class="py-20 animate-fade-in-up" style="animation-delay: 0.3s">
+            <div class="mb-12">
+                <div class="flex items-center gap-4 mb-2">
+                    <div class="w-1 h-8 bg-gradient-to-b from-accent-blue to-accent-purple"></div>
+                    <h2 class="text-4xl font-bold">프로젝트</h2>
+                </div>
+                <p class="text-text-muted ml-6">최근 3개의 핵심 프로젝트</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- 프로젝트 1 -->
+                <div class="glass-card rounded-xl overflow-hidden group hover:border-accent-blue transition duration-300">
+                    <div class="h-40 overflow-hidden relative">
+                        <img src="https://picsum.photos/seed/tasks/400/240" alt="작업 관리 앱" class="w-full h-full object-cover group-hover:scale-110 transition duration-300"/>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Task Manager</h3>
+                        <p class="text-text-muted text-sm mb-4">React + Node.js + MongoDB 전체 스택 작업 관리 애플리케이션</p>
+                        <div class="flex gap-2 flex-wrap mb-4">
+                            <span class="text-xs px-3 py-1 rounded-full bg-accent-blue/20 text-accent-blue">React</span>
+                            <span class="text-xs px-3 py-1 rounded-full bg-accent-purple/20 text-accent-purple">Node.js</span>
+                            <span class="text-xs px-3 py-1 rounded-full bg-accent-cyan/20 text-accent-cyan">MongoDB</span>
+                        </div>
+                        <a href="#" class="inline-flex items-center gap-2 text-accent-blue hover:text-accent-cyan transition">
+                            더 보기 <i class="fas fa-arrow-right text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 프로젝트 2 -->
+                <div class="glass-card rounded-xl overflow-hidden group hover:border-accent-blue transition duration-300">
+                    <div class="h-40 overflow-hidden relative">
+                        <img src="https://picsum.photos/seed/ecommerce/400/240" alt="이커머스" class="w-full h-full object-cover group-hover:scale-110 transition duration-300"/>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">E-Commerce Store</h3>
+                        <p class="text-text-muted text-sm mb-4">상품, 장바구니, 결제 통합 이커머스 플랫폼</p>
+                        <div class="flex gap-2 flex-wrap mb-4">
+                            <span class="text-xs px-3 py-1 rounded-full bg-accent-blue/20 text-accent-blue">React</span>
+                            <span class="text-xs px-3 py-1 rounded-full bg-accent-purple/20 text-accent-purple">Stripe</span>
+                            <span class="text-xs px-3 py-1 rounded-full bg-accent-cyan/20 text-accent-cyan">Python</span>
+                        </div>
+                        <a href="#" class="inline-flex items-center gap-2 text-accent-blue hover:text-accent-cyan transition">
+                            더 보기 <i class="fas fa-arrow-right text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 프로젝트 3 -->
+                <div class="glass-card rounded-xl overflow-hidden group hover:border-accent-blue transition duration-300">
+                    <div class="h-40 overflow-hidden relative">
+                        <img src="https://picsum.photos/seed/chat/400/240" alt="채팅 앱" class="w-full h-full object-cover group-hover:scale-110 transition duration-300"/>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Real-time Chat</h3>
+                        <p class="text-text-muted text-sm mb-4">Socket.io 기반 실시간 메시징 플랫폼</p>
+                        <div class="flex gap-2 flex-wrap mb-4">
+                            <span class="text-xs px-3 py-1 rounded-full bg-accent-blue/20 text-accent-blue">Socket.io</span>
+                            <span class="text-xs px-3 py-1 rounded-full bg-accent-purple/20 text-accent-purple">React</span>
+                            <span class="text-xs px-3 py-1 rounded-full bg-accent-cyan/20 text-accent-cyan">Express</span>
+                        </div>
+                        <a href="#" class="inline-flex items-center gap-2 text-accent-blue hover:text-accent-cyan transition">
+                            더 보기 <i class="fas fa-arrow-right text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 연락처 섹션 -->
+        <section id="contact" class="py-20 animate-fade-in-up" style="animation-delay: 0.4s">
+            <div class="glass-card p-12 rounded-2xl border border-accent-blue/30 text-center space-y-8">
+                <div>
+                    <h2 class="text-4xl font-bold mb-4">프로젝트 시작하기</h2>
+                    <p class="text-text-muted text-lg max-w-2xl mx-auto">
+                        새로운 기회, 제안, 또는 협업에 대해 항상 열려있습니다.<br>
+                        편하게 연락주세요.
+                    </p>
+                </div>
+
+                <div class="flex gap-4 justify-center flex-wrap">
+                    <a href="mailto:bernadine_lee3@hotmail.com" class="px-8 py-3 rounded-lg font-semibold bg-gradient-to-r from-accent-blue to-accent-purple text-white hover:shadow-lg hover:shadow-accent-blue/50 transition duration-300">
+                        <i class="fas fa-envelope mr-2"></i>이메일 보내기
+                    </a>
+                    <a href="tel:01012345678" class="px-8 py-3 rounded-lg font-semibold border-2 border-accent-purple text-accent-purple hover:bg-accent-purple/10 transition duration-300">
+                        <i class="fas fa-phone mr-2"></i>전화하기
+                    </a>
+                </div>
+
+                <div class="flex justify-center gap-6 pt-4">
+                    <a href="https://github.com" target="_blank" class="w-12 h-12 rounded-full bg-dark-surface border border-white/10 hover:border-accent-blue flex items-center justify-center transition">
+                        <i class="fab fa-github text-accent-blue"></i>
+                    </a>
+                    <a href="https://linkedin.com" target="_blank" class="w-12 h-12 rounded-full bg-dark-surface border border-white/10 hover:border-accent-blue flex items-center justify-center transition">
+                        <i class="fab fa-linkedin text-accent-blue"></i>
+                    </a>
+                    <a href="https://twitter.com" target="_blank" class="w-12 h-12 rounded-full bg-dark-surface border border-white/10 hover:border-accent-blue flex items-center justify-center transition">
+                        <i class="fab fa-twitter text-accent-blue"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 풋터 -->
+    <footer class="border-t border-white/5 py-8 mt-20 text-center text-text-muted">
+        <div class="max-w-6xl mx-auto px-6">
+            <p class="mb-4">&copy; 2024 Developer Portfolio. 모든 권리 보유.</p>
+            <p class="text-sm">Made with <i class="fas fa-heart text-accent-blue"></i> using React, Tailwind CSS</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
